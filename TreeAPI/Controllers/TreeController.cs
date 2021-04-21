@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using System;
 using TreeAPI.Models;
 using TreeAPI.TreeData;
 
@@ -54,9 +56,9 @@ namespace TreeAPI.Controllers
 
         [HttpPost]
         [Route("api/[controller]/add")]
-        public IActionResult AddNode(NodeData nodeData, int parentId, int index)
+        public IActionResult AddNode(AddNoteRequest request)
         {
-            TreeNode<NodeData> newNode = _treeData.AddNode(nodeData, parentId, index);
+            TreeNode<NodeData> newNode = _treeData.AddNode(request.NodeData, request.ParentId, request.Index);
             if (newNode != null)
             {
                 return Ok("Added node successfully");

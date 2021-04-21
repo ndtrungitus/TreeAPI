@@ -59,8 +59,8 @@ namespace TreeAPI.Models
 
         public TreeNode<NodeData> EditNode(NodeData data)
         {
-            TreeNode<NodeData> oldNode = _root.FindTreeNode(node => node.Data != null && node.Data.Id == node.Data.Id);
-            TreeNode<NodeData> node = oldNode;
+            TreeNode<NodeData> oldNode = _root.FindTreeNode(node => node.Data != null && node.Data.Id == data.Id);
+            TreeNode<NodeData> node = new TreeNode<NodeData>(oldNode);
             if (node != null)
             {
                 node.Data = data;

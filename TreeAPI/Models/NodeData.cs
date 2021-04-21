@@ -6,6 +6,11 @@
 
         public string Name { get; set; }
 
+        public NodeData()
+        {
+
+        }
+
         public NodeData(int id, string name)
         {
             Id = id;

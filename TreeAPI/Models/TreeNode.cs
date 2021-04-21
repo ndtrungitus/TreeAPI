@@ -13,6 +13,15 @@ namespace TreeAPI.Models
         public TreeNode<T> Parent { get; set; }
         public ICollection<TreeNode<T>> Children { get; set; }
 
+
+        public TreeNode(TreeNode<T> obj)
+        {
+            Data = obj.Data;
+            Parent = obj.Parent;
+            Children = obj.Children;
+            ElementsIndex = obj.ElementsIndex;
+        }
+
         public Boolean IsRoot
         {
             get { return Parent == null; }
